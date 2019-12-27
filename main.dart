@@ -101,9 +101,20 @@ class _MyHomePageState extends State<MyHomePage> {
                 return ListView.builder(
                   itemCount: snapshot.data.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return ListTile(
-                      title: Text(snapshot.data[index].title),
-                    );
+                    return GestureDetector(
+                     child: Container(
+                      child:Card(
+                        elevation:1.0,
+                        color : Colors.red,
+                        child :Center(child:Text(snapshot.data[index].title)),
+                      ),
+                      width:100.0,
+                      height:50.0
+                      ),
+                      onTap:(){
+                        print(index);
+                      }
+                      );
                   },
                 );
               }
@@ -112,4 +123,5 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       );
   }
+
 }
